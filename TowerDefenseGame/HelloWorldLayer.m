@@ -13,10 +13,14 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
+#import "Tower.h"
+
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
+
+@synthesize towers;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -34,72 +38,35 @@
 	return scene;
 }
 
+-(void)loadTowerPositions
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"TowersPosition" ofType:@"plist"];
+    NSArray *towerPostitions = [NSArray arrayWithContentsOfFile:plistPath];
+    towerBases = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    for (NSDictionary *towerPos in towerPostitions) {
+        CCSprite *towerBase = [CCSprite spriteWithFile:@"open_spot.png"];
+        [self addChild:towerBase];
+        [towerBase setPosition:ccp([[towerPos objectForKey:@"x"] intValue], [[towerPos objectForKey:@"y"] intValue])];
+        [towerBases addObject:towerBase];
+    }
+}
+
 // on "init" you need to initialize your instance
 -(id) init
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
-		
-		
-		
-		//
-		// Leaderboards and Achievements
-		//
-		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-			[achivementViewController release];
-		}
-									   ];
-
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}
-									   ];
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
-
+		self.isTouchEnabled = YES;
+		CGSize wins = [CCDirector sharedDirector].winSize;
+        
+        // set background
+        CCSprite *background = [CCSprite spriteWithFile:@"Bg.png"];
+        [self addChild:background];
+        [background setPosition:ccp(wins.width/2, wins.height/2)];
+        
+        [self loadTowerPositions];
 	}
 	return self;
 }
@@ -110,22 +77,37 @@
 	// in case you have something to dealloc, do it in this method
 	// in this particular example nothing needs to be released.
 	// cocos2d will automatically release all the children (Label)
-	
+	[towerBases release];
+    towerBases = nil;
+    [towers release];
+    towers = nil;
+    
 	// don't forget to call "super dealloc"
 	[super dealloc];
 }
 
-#pragma mark GameKit delegate
-
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+- (BOOL)canBuyTower
 {
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+    return YES;
 }
 
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+    for ( UITouch *touch in touches )
+    {
+        CGPoint location = [touch locationInView:[touch view]];
+        location = [[CCDirector sharedDirector] convertToGL:location];
+        
+        for ( CCSprite *tb in towerBases )
+        {
+            if ([self canBuyTower] && CGRectContainsPoint([tb boundingBox], location) && !tb.userData)
+            {
+                Tower *tower = [Tower nodeWithTheGame:self location:tb.position];
+                [towers addObject:tower];
+                tb.userData = tower;
+            }
+        }
+    }
 }
+
 @end

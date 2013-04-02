@@ -133,6 +133,18 @@
 		16737657170B0579004BD181 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16737656170B0579004BD181 /* AppDelegate.m */; };
 		1673765A170B0579004BD181 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16737659170B0579004BD181 /* HelloWorldLayer.m */; };
 		1673765D170B0579004BD181 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673765C170B0579004BD181 /* IntroLayer.m */; };
+		1673766E170B07A7004BD181 /* Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737663170B07A7004BD181 /* Bg.png */; };
+		1673766F170B07A7004BD181 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737664170B07A7004BD181 /* bullet.png */; };
+		16737670170B07A7004BD181 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737665170B07A7004BD181 /* enemy.png */; };
+		16737671170B07A7004BD181 /* font_red_14.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 16737666170B07A7004BD181 /* font_red_14.fnt */; };
+		16737672170B07A7004BD181 /* font_red_14.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737667170B07A7004BD181 /* font_red_14.png */; };
+		16737673170B07A7004BD181 /* icon_gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737668170B07A7004BD181 /* icon_gold.png */; };
+		16737674170B07A7004BD181 /* icon_HP.png in Resources */ = {isa = PBXBuildFile; fileRef = 16737669170B07A7004BD181 /* icon_HP.png */; };
+		16737675170B07A7004BD181 /* open_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1673766A170B07A7004BD181 /* open_spot.png */; };
+		16737676170B07A7004BD181 /* tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 1673766B170B07A7004BD181 /* tower.png */; };
+		16737677170B07A7004BD181 /* TowersPosition.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1673766C170B07A7004BD181 /* TowersPosition.plist */; };
+		16737678170B07A7004BD181 /* Waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1673766D170B07A7004BD181 /* Waves.plist */; };
+		1673767B170B0BC3004BD181 /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673767A170B0BC3004BD181 /* Tower.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +410,19 @@
 		16737659170B0579004BD181 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		1673765B170B0579004BD181 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		1673765C170B0579004BD181 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		16737663170B07A7004BD181 /* Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bg.png; sourceTree = "<group>"; };
+		16737664170B07A7004BD181 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet.png; sourceTree = "<group>"; };
+		16737665170B07A7004BD181 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		16737666170B07A7004BD181 /* font_red_14.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = font_red_14.fnt; sourceTree = "<group>"; };
+		16737667170B07A7004BD181 /* font_red_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font_red_14.png; sourceTree = "<group>"; };
+		16737668170B07A7004BD181 /* icon_gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gold.png; sourceTree = "<group>"; };
+		16737669170B07A7004BD181 /* icon_HP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_HP.png; sourceTree = "<group>"; };
+		1673766A170B07A7004BD181 /* open_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open_spot.png; sourceTree = "<group>"; };
+		1673766B170B07A7004BD181 /* tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower.png; sourceTree = "<group>"; };
+		1673766C170B07A7004BD181 /* TowersPosition.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TowersPosition.plist; sourceTree = "<group>"; };
+		1673766D170B07A7004BD181 /* Waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waves.plist; sourceTree = "<group>"; };
+		16737679170B0BC3004BD181 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		1673767A170B0BC3004BD181 /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +487,8 @@
 				16737659170B0579004BD181 /* HelloWorldLayer.m */,
 				1673765B170B0579004BD181 /* IntroLayer.h */,
 				1673765C170B0579004BD181 /* IntroLayer.m */,
+				16737679170B0BC3004BD181 /* Tower.h */,
+				1673767A170B0BC3004BD181 /* Tower.m */,
 				167374DE170B0574004BD181 /* Resources */,
 				167374F8170B0575004BD181 /* libs */,
 				16737651170B0579004BD181 /* Supporting Files */,
@@ -485,6 +512,17 @@
 				167374F3170B0575004BD181 /* Icon@2x.png */,
 				167374F5170B0575004BD181 /* Info.plist */,
 				167374F6170B0575004BD181 /* iTunesArtwork */,
+				16737663170B07A7004BD181 /* Bg.png */,
+				16737664170B07A7004BD181 /* bullet.png */,
+				16737665170B07A7004BD181 /* enemy.png */,
+				16737666170B07A7004BD181 /* font_red_14.fnt */,
+				16737667170B07A7004BD181 /* font_red_14.png */,
+				16737668170B07A7004BD181 /* icon_gold.png */,
+				16737669170B07A7004BD181 /* icon_HP.png */,
+				1673766A170B07A7004BD181 /* open_spot.png */,
+				1673766B170B07A7004BD181 /* tower.png */,
+				1673766C170B07A7004BD181 /* TowersPosition.plist */,
+				1673766D170B07A7004BD181 /* Waves.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -895,6 +933,17 @@
 				167374F4170B0575004BD181 /* Icon@2x.png in Resources */,
 				167374F7170B0575004BD181 /* iTunesArtwork in Resources */,
 				16737635170B0579004BD181 /* ChangeLog in Resources */,
+				1673766E170B07A7004BD181 /* Bg.png in Resources */,
+				1673766F170B07A7004BD181 /* bullet.png in Resources */,
+				16737670170B07A7004BD181 /* enemy.png in Resources */,
+				16737671170B07A7004BD181 /* font_red_14.fnt in Resources */,
+				16737672170B07A7004BD181 /* font_red_14.png in Resources */,
+				16737673170B07A7004BD181 /* icon_gold.png in Resources */,
+				16737674170B07A7004BD181 /* icon_HP.png in Resources */,
+				16737675170B07A7004BD181 /* open_spot.png in Resources */,
+				16737676170B07A7004BD181 /* tower.png in Resources */,
+				16737677170B07A7004BD181 /* TowersPosition.plist in Resources */,
+				16737678170B07A7004BD181 /* Waves.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1058,7 @@
 				16737657170B0579004BD181 /* AppDelegate.m in Sources */,
 				1673765A170B0579004BD181 /* HelloWorldLayer.m in Sources */,
 				1673765D170B0579004BD181 /* IntroLayer.m in Sources */,
+				1673767B170B0BC3004BD181 /* Tower.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
